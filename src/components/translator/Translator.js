@@ -9,12 +9,6 @@ export default function Translator() {
   const [loading, setLoading] = useState(false);
 
   async function translate() {
-    // translate the text on a button click(translate button)
-    // store the text in the translatedText state
-    // console.log the new translatedText state
-    // make sure there is no errors and warnings in the console
-    // use fetch api, and the .then method, don't use async await.
-
     // start the loading
     setLoading(true);
 
@@ -45,16 +39,19 @@ export default function Translator() {
   }
 
   return (
-    <div>
+    <div className="p-2">
       {loading && (
-        <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-75">
+        <div
+          className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-75"
+          data-testid="loading-element"
+        >
           <ReactLoading type="bubbles" color="white" height={100} width={100} />
         </div>
       )}
       <p className="text-3xl font-bold text-center p-5">Your Cool Translator</p>
       <div className="flex flex-col justify-center items-center">
         <input
-          className="w-1/2 p-2 m-2 border-2 border-gray-400 rounded-md"
+          className="w-full md:w-1/2 p-2 m-2 border-2 border-gray-400 rounded-md"
           value={text}
           onChange={(e) => setText(e.target.value)}
           type="text"
@@ -62,9 +59,9 @@ export default function Translator() {
           required
         ></input>
 
-        <div className="flex justify-center items-center w-1/2">
+        <div className="flex justify-center items-center w-full md:w-1/2">
           <input
-            className="w-1/2 p-2 mt-2 mr-2 border-2 border-gray-400 rounded-md"
+            className="w-full md:w-1/2 p-2 mt-2 mr-2 border-2 border-gray-400 rounded-md"
             onChange={(e) => setSrcLang(e.target.value)}
             value={srcLang}
             type="text"
@@ -72,7 +69,7 @@ export default function Translator() {
             required
           ></input>
           <input
-            className="w-1/2 p-2 mt-2 ml-2 border-2 border-gray-400 rounded-md"
+            className="w-full md:w-1/2 p-2 mt-2 ml-2 border-2 border-gray-400 rounded-md"
             value={targetLang}
             onChange={(e) => setTargetLang(e.target.value)}
             type="text"
@@ -82,7 +79,7 @@ export default function Translator() {
         </div>
 
         <button
-          className="text-xl font-bold w-1/2 border-2 bg-blue-600 text-white hover:bg-blue-500 p-2 mx-2 my-4 rounded-md bg"
+          className="text-xl font-bold w-full md:w-1/2 border-2 bg-blue-600 text-white hover:bg-blue-500 p-2 mx-2 my-4 rounded-md bg"
           type="submit"
           onClick={translate}
         >

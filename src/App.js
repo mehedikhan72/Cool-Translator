@@ -1,4 +1,4 @@
-import Translator from "./components/Translator";
+import Translator from "./components/translator/Translator";
 
 function App() {
   return (
