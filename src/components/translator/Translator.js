@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactLoading from "react-loading";
+import Loading from "../utils/Loading";
 
 export default function Translator() {
   const [text, setText] = useState("");
@@ -40,14 +40,7 @@ export default function Translator() {
 
   return (
     <div className="p-2">
-      {loading && (
-        <div
-          className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-75"
-          data-testid="loading-element"
-        >
-          <ReactLoading type="bubbles" color="white" height={100} width={100} />
-        </div>
-      )}
+      {loading && <Loading />}
       <p className="text-3xl font-bold text-center p-5">Your Cool Translator</p>
       <div className="flex flex-col justify-center items-center">
         <input
